@@ -1,12 +1,11 @@
 import React, { useState } from "react";
+
 import { InputArea } from "./components/InputArea";
 import { IncompleteArea } from "./components/IncompleteArea";
 import { CompleteArea } from "./components/CompleteArea";
 
-import "./styles.css";
-
 function App() {
-  const [inputText, setInputText] = useState("");
+  const [inputText, setInputText] = useState('');
   const [incompleteList, setIncompleteList] = useState([]);
   const [completeList, setCompleteList] = useState([]);
 

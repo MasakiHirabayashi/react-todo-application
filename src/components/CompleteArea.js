@@ -1,3 +1,7 @@
+import MaterialTable from "material-table";
+
+import ReplayIcon from "@material-ui/icons/Replay";
+
 export const CompleteArea = (props) => {
   const { completeList, setCompleteList, incompleteList, setIncompleteList } =
     props;
@@ -17,16 +21,27 @@ export const CompleteArea = (props) => {
   };
 
   return (
-    <div className="complete-area">
-      <p className="title">完了のTodo</p>
-      {completeList.map((todo, index) => {
-        return (
-          <div key={todo} className="list-row">
-            <li> {todo} </li>
-            <button onClick={() => onClickReturn(index)}>戻す</button>
-          </div>
-        );
-      })}
-    </div>
+    <MaterialTable
+      title="完了済みのTodo"
+      columns={[
+        { title: "タイトル", field: "Title" },
+        { title: "登録日時", field: "RegisterdDate"},
+        { title: "完了日時", field: "CompleteDate" },
+      ]}
+      data={[...completeList]}
+      actions={[
+        {
+          icon: ReplayIcon,
+          tooltip: "戻す",
+          onClick: (event, rowData) => onClickReturn(rowData.tableData.id),
+          iconProps: ReplayIcon.color= "primary" ,
+        },
+      ]}
+      options={{
+        padding: "dense",
+        search: false,
+        paging: false,
+      }}
+    />
   );
 };
