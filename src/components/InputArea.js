@@ -1,8 +1,7 @@
 import { Button } from '@material-ui/core';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 
-export const InputArea = (props) => {
-  const { inputText, setInputText, incompleteList, setIncompleteList } = props;
+export const InputArea = ({ inputText, setInputText, incompleteList, setIncompleteList }) => {
 
   /**
    * フォーム入力時の処理

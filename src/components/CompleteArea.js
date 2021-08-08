@@ -1,27 +1,27 @@
 import React, { forwardRef } from "react";
 import MaterialTable from "material-table";
 
-import FirstPageIcon from "@material-ui/icons/FirstPage";
-import LastPageIcon from "@material-ui/icons/LastPage";
-import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
-import SearchIcon from "@material-ui/icons/Search";
-import ClearIcon from "@material-ui/icons/Clear";
-import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
-import ReplayIcon from "@material-ui/icons/Replay";
+import {
+  FirstPage,
+  LastPage,
+  ChevronRight,
+  ChevronLeft,
+  Search,
+  Clear,
+  ArrowDownward,
+  Replay
+} from "@material-ui/icons"
 
-export const CompleteArea = (props) => {
-  const { completeList, setCompleteList, incompleteList, setIncompleteList } =
-    props;
+export const CompleteArea = ({ completeList, setCompleteList, incompleteList, setIncompleteList }) => {
 
   const tableIcons = {
-    FirstPage: forwardRef((props, ref) => <FirstPageIcon {...props} ref={ref} />),
-    LastPage: forwardRef((props, ref) => <LastPageIcon {...props} ref={ref} />),
-    NextPage: forwardRef((props, ref) => <ChevronRightIcon {...props} ref={ref} />),
-    PreviousPage: forwardRef((props, ref) => <ChevronLeftIcon {...props} ref={ref} />),
-    ResetSearch: forwardRef((props, ref) => <ClearIcon {...props} ref={ref} />),
-    Search: forwardRef((props, ref) => <SearchIcon {...props} ref={ref} />),
-    SortArrow: forwardRef((props, ref) => <ArrowDownwardIcon {...props} ref={ref} />),
+    FirstPage: forwardRef((props, ref) => <FirstPage {...props} ref={ref} />),
+    LastPage: forwardRef((props, ref) => <LastPage {...props} ref={ref} />),
+    NextPage: forwardRef((props, ref) => <ChevronRight {...props} ref={ref} />),
+    PreviousPage: forwardRef((props, ref) => <ChevronLeft {...props} ref={ref} />),
+    ResetSearch: forwardRef((props, ref) => <Clear {...props} ref={ref} />),
+    Search: forwardRef((props, ref) => <Search {...props} ref={ref} />),
+    SortArrow: forwardRef((props, ref) => <ArrowDownward {...props} ref={ref} />),
   };
 
   /**
@@ -49,10 +49,10 @@ export const CompleteArea = (props) => {
       data={[...completeList]}
       actions={[
         {
-          icon: ReplayIcon,
+          icon: Replay,
           tooltip: "戻す",
           onClick: (event, rowData) => onClickReturn(rowData.tableData.id),
-          iconProps: (ReplayIcon.color = "primary"),
+          iconProps: (Replay.color = "primary"),
         },
       ]}
       icons={

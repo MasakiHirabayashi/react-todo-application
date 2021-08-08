@@ -1,29 +1,29 @@
 import React, { forwardRef } from "react";
 import MaterialTable from "material-table";
 
-import DoneIcon from '@material-ui/icons/Done';
-import FirstPageIcon from '@material-ui/icons/FirstPage';
-import LastPageIcon from '@material-ui/icons/LastPage';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import SearchIcon from '@material-ui/icons/Search';
-import ClearIcon from '@material-ui/icons/Clear';
-import DeleteOutline from '@material-ui/icons/DeleteOutline';
-import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
+import {
+  FirstPage,
+  LastPage,
+  ChevronRight,
+  ChevronLeft,
+  Search,
+  Clear,
+  ArrowDownward,
+  Done,
+  DeleteOutline
+} from "@material-ui/icons"
 
-export const IncompleteArea = (props) => {
-  const { incompleteList, setIncompleteList, completeList, setCompleteList } =
-    props;
+export const IncompleteArea = ({ incompleteList, setIncompleteList, completeList, setCompleteList }) => {
 
   const tableIcons = {
-    FirstPage: forwardRef((props, ref) => <FirstPageIcon {...props} ref={ref} />),
-    LastPage: forwardRef((props, ref) => <LastPageIcon {...props} ref={ref} />),
-    NextPage: forwardRef((props, ref) => <ChevronRightIcon {...props} ref={ref} />),
-    PreviousPage: forwardRef((props, ref) => <ChevronLeftIcon {...props} ref={ref} />),
-    ResetSearch: forwardRef((props, ref) => <ClearIcon {...props} ref={ref} />),
-    Search: forwardRef((props, ref) => <SearchIcon {...props} ref={ref} />),
-    SortArrow: forwardRef((props, ref) => <ArrowDownwardIcon {...props} ref={ref} />),
-  }
+    FirstPage: forwardRef((props, ref) => <FirstPage {...props} ref={ref} />),
+    LastPage: forwardRef((props, ref) => <LastPage {...props} ref={ref} />),
+    NextPage: forwardRef((props, ref) => <ChevronRight {...props} ref={ref} />),
+    PreviousPage: forwardRef((props, ref) => <ChevronLeft {...props} ref={ref} />),
+    ResetSearch: forwardRef((props, ref) => <Clear {...props} ref={ref} />),
+    Search: forwardRef((props, ref) => <Search {...props} ref={ref} />),
+    SortArrow: forwardRef((props, ref) => <ArrowDownward {...props} ref={ref} />),
+  };
 
   /**
    * 削除ボタン押下時の処理
@@ -68,7 +68,7 @@ export const IncompleteArea = (props) => {
       data={[...incompleteList]}
       actions={[
         {
-          icon: DoneIcon,
+          icon: Done,
           tooltip: "完了",
           onClick: (event, rowData) =>  onClickComplete(rowData.tableData.id),
           iconProps: {color: 'primary'}
